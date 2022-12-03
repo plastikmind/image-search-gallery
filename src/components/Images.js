@@ -8,8 +8,8 @@ const Images = ({ results }) => {
       const { id, urls } = result;
 
       return (
-        <div key={id} className="flex">
-          <img src={urls?.regular} className="h-full w-full" />
+        <div key={id} className="flex break-inside-avoid pb-1 md:pb-4">
+          <img src={urls?.regular} />
         </div>
       );
     });

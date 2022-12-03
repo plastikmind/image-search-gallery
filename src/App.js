@@ -22,18 +22,20 @@ function App() {
   const getData = async () => {
     const response = await axios.get(apiEndPoint);
     setFetchedData(response.data);
-    console.log("fuck", fetchedData);
   };
 
   useEffect(() => {
-    getRandomImage();
     getData();
   }, [apiEndPoint]);
+
+  useEffect(() => {
+    getRandomImage();
+  }, []);
 
   return (
     <div className="flex flex-col items-center">
       <div className="flex relative mt-[10%] md:mt-[5%]">
-        <img src={randomImage?.urls?.regular} className="relative " />
+        <img src={randomImage?.urls?.regular} className="relative" />
 
         <div className="absolute top-0 bottom-0 right-0 left-0 bg-black bg-opacity-30 items-center justify-center flex flex-col">
           <p className="text-white text-center font-semibold text-4xl md:text-6xl">
@@ -46,7 +48,7 @@ function App() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 px-[1%] xl:px-[5%] 2xl:px-[20%] gap-1 md:gap-4 pt-20">
+      <div className="md:columns-2 lg:columns-3 px-1 md:px-4 gap-1 max-w-[1300px] md:gap-4 pt-20">
         <Images results={results} />
       </div>
     </div>
